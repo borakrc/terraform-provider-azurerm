@@ -263,10 +263,10 @@ func (r PrivateDNSResolverSecurityRuleResource) Read() sdk.ResourceFunc {
 
 func (r PrivateDNSResolverSecurityRuleResource) flatten(metadata sdk.ResourceMetaData, id *dnssecurityrules.DnsSecurityRuleId, model *dnssecurityrules.DnsSecurityRule) error {
 	state := PrivateDNSResolverSecurityRuleModel{
-		Name:                id.DnsSecurityRuleName,
-		DnsResolverPolicyId: dnsresolverpolicies.NewDnsResolverPolicyID(id.SubscriptionId, id.ResourceGroupName, id.DnsResolverPolicyName).ID(),
-		Location:            location.Normalize(model.Location),
-		Priority:            model.Properties.Priority,
+		Name:                     id.DnsSecurityRuleName,
+		DnsResolverPolicyId:      dnsresolverpolicies.NewDnsResolverPolicyID(id.SubscriptionId, id.ResourceGroupName, id.DnsResolverPolicyName).ID(),
+		Location:                 location.Normalize(model.Location),
+		Priority:                 model.Properties.Priority,
 		DnsResolverDomainListIds: flattenDnsSecurityRuleDomainListReferences(model.Properties.DnsResolverDomainLists),
 	}
 
