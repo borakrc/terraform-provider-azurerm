@@ -91,5 +91,6 @@ func (r Registration) ListResources() []sdk.FrameworkListWrappedResource {
 	return []sdk.FrameworkListWrappedResource{
 		PrivateDNSResolverDomainListListResource{},
 		PrivateDNSResolverPolicyListResource{},
+		PrivateDNSResolverPolicyVirtualNetworkLinkListResource{},
 	}
 }
